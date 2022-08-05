@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /school
+
+spring:
+  application:
+    name: school
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/school
+    username: root
+    password: liu
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialization-mode: always
+# 驼峰自动转下划线 举例：数据库中字段 class_name 查询出来转对象 className
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
