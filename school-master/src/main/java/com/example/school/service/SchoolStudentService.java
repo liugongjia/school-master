@@ -1,6 +1,6 @@
 package com.example.school.service;
 
-import com.example.school.entity.SchoolClass;
+import com.example.school.entity.School;
 import com.example.school.entity.StudentClass;
 
 import java.util.List;
@@ -39,7 +39,9 @@ public interface SchoolStudentService {
      * @param studentName
      * @return
      */
-    StudentClass findClass(String studentName);
+    StudentClass findStudentByname(String studentName);
+
+
 
     /**
      * 根据姓名删除学生
@@ -47,4 +49,25 @@ public interface SchoolStudentService {
      * @param studentName
      */
     void deleteStudent(String studentName);
+
+
+    /**
+     * 学生姓名的模糊查询
+     *查询名字包含某个或多个字符的学生的信息,并分页展示
+     * @param keyString,
+     * @param pageId,
+     * @param pageSize
+     * @return
+     */
+   List<StudentClass> queryStuByKeyStr(String keyString,Long pageId,Long pageSize);
+
+    /**
+     * 学校类型的模糊查询
+     * 师范类和理工类两类学校的模糊查询
+     * @param keyString
+     * @param pageId
+     * @param pageSize
+     * @return
+     */
+    List<School> querySchByKeyStr(String keyString, Long pageId, Long pageSize);
 }

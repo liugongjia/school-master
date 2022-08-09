@@ -10,7 +10,7 @@ public class SchoolClass {
     /**
      * id
      */
-    private Long id;
+    private Long classId;
     /**
      * 班级名称
      */
@@ -23,34 +23,43 @@ public class SchoolClass {
     private String classDesc;
 
 
-    public void setId(Long id) {
-        this.id = id;
+    public SchoolClass() {
     }
 
-    public void setClassName(String className) {
+    public SchoolClass(Long classId, String className, String classDesc) {
+        this.classId = classId;
         this.className = className;
-    }
-
-    public void setClassDesc(String classDesc) {
         this.classDesc = classDesc;
     }
 
-    public Long getId() {
-        return id;
+    public Long getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Long classId) {
+        this.classId = classId;
     }
 
     public String getClassName() {
         return className;
     }
 
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
     public String getClassDesc() {
         return classDesc;
+    }
+
+    public void setClassDesc(String classDesc) {
+        this.classDesc = classDesc;
     }
 
     @Override
     public String toString() {
         return "SchoolClass{" +
-                "id=" + id +
+                "classId=" + classId +
                 ", className='" + className + '\'' +
                 ", classDesc='" + classDesc + '\'' +
                 '}';

@@ -18,7 +18,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     initialization-mode: always
-# 驼峰自动转下划线 举例：数据库中字段 class_name 查询出来转对象 className
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    jdbc-type-for-null: 'null'

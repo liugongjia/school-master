@@ -1,6 +1,5 @@
 package com.example.school.controller;
 
-import com.example.school.entity.SchoolClass;
 import com.example.school.entity.StudentClass;
 import com.example.school.service.SchoolStudentService;
 import com.example.school.util.R;
@@ -50,7 +49,7 @@ public class StudentController {
      *
      * @return
      */
-    @ApiOperation(value = "查询所有班级")
+    @ApiOperation(value = "查询所有学生")
     @GetMapping("/list")
     public R listStudent() {
         return R.ok(studentService.listAllClass());
@@ -64,7 +63,7 @@ public class StudentController {
     @ApiOperation(value = "根据名字查询某个学生")
     @GetMapping("/{studentName}")
     public R findStudent(@PathVariable String studentName) {
-        return R.ok(studentService.findClass(studentName));
+        return R.ok(studentService.findStudentByname(studentName));
     }
 
     /**
@@ -73,10 +72,22 @@ public class StudentController {
      * @return
      */
     @ApiOperation(value = "删除学生")
-    @DeleteMapping("/{studentName}")
+    @DeleteMapping("/{pageId}")
     public R delClass(@PathVariable String studentName) {
         studentService.deleteStudent(studentName);
         return R.ok();
     }
 
+
+    @ApiOperation(value = "根据学生姓名模糊查寻")
+    @RequestMapping(name = "/test2/{keyString}/{pageId}/{pageSize}")
+    public R queryStuByKeyStr(@PathVariable String keyString, @PathVariable Long pageId, @PathVariable Long pageSize) {
+        return R.ok(studentService.queryStuByKeyStr(keyString,pageId,pageSize));
+    }
+
+    @ApiOperation(value = "根据学校类型模糊查寻")
+    @RequestMapping(name = "/test3/{keyString}/{pageId}/{pageSize}")
+    public R querySchByKeyStr(@PathVariable String keyString, @PathVariable Long pageId, @PathVariable Long pageSize) {
+        return R.ok(studentService.querySchByKeyStr(keyString,pageId,pageSize));
+    }
 }

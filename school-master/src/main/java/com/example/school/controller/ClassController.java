@@ -63,8 +63,8 @@ public class ClassController {
      */
     @ApiOperation(value = "查询id查询某个班级")
     @GetMapping("/{id}")
-    public R findClass(@PathVariable Long id) {
-        return R.ok(schoolClassService.findClass(id));
+    public R findClass(@PathVariable Long class_id) {
+        return R.ok(schoolClassService.findClass(class_id));
     }
 
     /**
@@ -74,8 +74,8 @@ public class ClassController {
      */
     @ApiOperation(value = "删除班级")
     @DeleteMapping("/{id}")
-    public R delClass(@PathVariable Long id) {
-        schoolClassService.deleteClass(id);
+    public R delClass(@PathVariable Long class_id) {
+        schoolClassService.deleteClass(class_id);
         return R.ok();
     }
 

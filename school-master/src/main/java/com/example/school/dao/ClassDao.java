@@ -28,7 +28,7 @@ public interface ClassDao {
      * @param schoolClass
      * @return
      */
-    @Update("update school_class set class_name=#{className}, class_desc=#{classDesc} where id=#{id}")
+    @Update("update school_class set class_name=#{className}, class_desc=#{classDesc} where class_id=#{class_id}")
     int update(SchoolClass schoolClass);
 
     /**
@@ -42,11 +42,11 @@ public interface ClassDao {
     /**
      * 查询某个班级
      *
-     * @param id
+     * @param class_id
      * @return
      */
-    @Select("select * from school_class where id=#{id}")
-    SchoolClass findClassById(Long id);
+    @Select("select * from school_class where class_id=#{class_id}")
+    SchoolClass findClassById(Long class_id);
 
     /**
      * 根据班级名称查询班级
@@ -60,9 +60,9 @@ public interface ClassDao {
     /**
      * 删除班级
      *
-     * @param id
+     * @param class_id
      * @return
      */
-    @Delete("delete from school_class where id=#{id}")
-    int delete(Long id);
+    @Delete("delete from school_class where class_id=#{class_id}")
+    int delete(Long class_id);
 }
